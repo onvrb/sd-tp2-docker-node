@@ -10,3 +10,29 @@ services:
     restart: unless-stopped
     volumes:
       - '/:/host:ro,rslave'
+
+# services running on kubernetes
+  # wp:
+  #   container_name: wp
+  #   image: ghcr.io/onvrb/sd-tp2-wordpress:master
+  #   ports:
+  #     - "8080:80"
+  #   volumes:
+  #     - ./wp:/config
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - mariadb
+
+  # mariadb:
+  #   container_name: mariadb
+  #   image: ghcr.io/onvrb/sd-tp2-mariadb:main
+  #   # ports:
+  #     # - "3306:3306"
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=safe_root_password
+  #     - MYSQL_DATABASE=wordpress
+  #     - MYSQL_USER=wordpress
+  #     - MYSQL_PASSWORD=wordpress
+  #   volumes:
+  #     - ./mariadb:/var/lib/mysql
+  #   restart: unless-stopped
